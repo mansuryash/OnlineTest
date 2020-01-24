@@ -1,0 +1,41 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+
+
+
+<select [(ngModel)]="selectedValue" (change)="getQuestions()">
+  <option *ngFor="let t of technologyList" [ngValue]="t.id">{{t.title}}</option>
+</select>
+<br><br>
+
+
+
+<table class="table">
+  <thead>
+    <td>Qusetion</td>
+    <td>OptionA</td>
+    <td>OptionB</td>
+    <td>OptionC</td>
+    <td>OptionD</td>
+    <td>Right Option</td>
+  </thead>
+  <tbody>
+    <tr *ngFor="let question of questionList">
+      <td><input type="text" [(ngModel)]="question.title" [disabled]="isDisabled()" /></td>
+      <td><input type="text" [(ngModel)]="question.optionA" [disabled]="isDisabled()" /></td>
+      <td><input type="text" [(ngModel)]="question.optionB" [disabled]="isDisabled()" /></td>
+      <td><input type="text" [(ngModel)]="question.optionC" [disabled]="isDisabled()" /></td>
+      <td><input type="text" [(ngModel)]="question.optionD" [disabled]="isDisabled()" /></td>
+      <td><input type="text" [(ngModel)]="question.rightOption" [disabled]="isDisabled()" /></td>
+      <td><button (click)="deleteQuestion(question)">Delete</button></td>
+      <td><button (click)="updateQuestion(question,selectedValue)">update</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<a routerLink="/view">Create Question</a>&nbsp;&nbsp;&nbsp;&nbsp;

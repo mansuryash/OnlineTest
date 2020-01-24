@@ -1,0 +1,46 @@
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<form [formGroup]="addQuestion" (ngSubmit)="submitQuestionData()">
+
+
+  <label>Enter Question</label>&nbsp;&nbsp;
+  <input type="text" formControlName="title"><br><br>
+
+
+  <label>Enter option A</label>&nbsp;&nbsp;&nbsp;
+  <input type="text" formControlName="optionA"><br><br>
+
+
+  <label>Enter option B</label>&nbsp;&nbsp;&nbsp;
+  <input type="text" formControlName="optionB"><br><br>
+
+
+
+  <label>Enter option C</label>&nbsp;&nbsp;&nbsp;
+  <input type="text" formControlName="optionC"><br><br>
+
+
+
+  <label>Enter option D</label>&nbsp;&nbsp;&nbsp;
+  <input type="text" formControlName="optionD"><br><br>
+
+
+  <label>Enter Right Opt.</label>&nbsp;
+  <input type="text" formControlName="rightOption"><br><br>
+
+
+
+  <select formControlName="tech" class="form-control">
+    <option  [selected]="isSelected">Select technology
+   </option>
+  <option *ngFor="let t of technologyList" [ngValue]="t.id">{{t.title}}</option>
+</select><br><br>
+  <button class="btn btn-danger">Add Question</button>
+</form>
